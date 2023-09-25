@@ -1,18 +1,285 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
-        {% block stylesheets %}
-        {% endblock %}
+<html lang="fr" data-fr-theme>
+<head>
+    <base href="../">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="format-detection" content="telephone=no">
+    <title>{% block title %}Projet Symfony PostgreSQL{% endblock %}</title>
+    <meta name="theme-color" content="#000091"><!-- Défini la couleur de thème du navigateur (Safari/Android) -->
+    <link rel="apple-touch-icon" href="{{ asset('assets/favicon/apple-touch-icon.png') }}"><!-- 180×180 -->
+    <link rel="icon" href="{{ asset('assets/favicon/favicon.svg') }}" type="image/svg+xml">
+    <!-- si favicon.ico peut etre placé à la racine du serveur, retirer la ligne ci-dessous -->
+    <link rel="shortcut icon" href="{{ asset('assets/favicon/favicon.ico') }}" type="image/x-icon"><!-- 32×32 -->
+    <link rel="manifest" href="{{ asset('assets/favicon/manifest.webmanifest') }}" crossorigin="use-credentials">
+    <!-- Modifier les chemins relatifs des favicons en fonction de la structure du projet -->
+    <!-- Dans le fichier manifest.webmanifest aussi, modifier les chemins vers les images -->
+    <link href="{{ asset('assets/core/core.main.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/component/button/button.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/component/card/card.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/component/form/form.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/component/footer/footer.main.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/component/table/table.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/component/link/link.main.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/component/button/button.main.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/component/select/select.main.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/component/logo/logo.main.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/component/form/form.main.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/component/badge/badge.main.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/scheme/scheme.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/component/accordion/accordion.main.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/component/navigation/navigation.main.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/component/modal/modal.main.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/component/password/password.main.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/component/radio/radio.main.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/component/input/input.main.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/component/translate/translate.main.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/utility/utility.main.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/component/search/search.main.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/component/header/header.main.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/core/core.legacy.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/component/button/button.legacy.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/component/form/form.legacy.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/component/footer/footer.legacy.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/component/table/table.legacy.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/component/link/link.legacy.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/component/button/button.legacy.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/component/logo/logo.legacy.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/component/form/form.legacy.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/component/badge/badge.legacy.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/component/select/select.legacy.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/component/accordion/accordion.legacy.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/component/navigation/navigation.legacy.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/component/modal/modal.legacy.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/component/radio/radio.legacy.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/component/input/input.legacy.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/component/translate/translate.legacy.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/utility/utility.legacy.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/component/search/search.legacy.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/component/header/header.legacy.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/component/password/password.legacy.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/component/card/card.legacy.css') }}" rel="stylesheet">
+    <!-- <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>"> -->
+    {% block stylesheets %}
+    {% endblock %}
 
-        {% block javascripts %}
-        {% endblock %}
-    </head>
-    <body>
+    {% block javascripts %}
+    {% endblock %}
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.20.0/themes/prism.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.20.0/plugins/toolbar/prism-toolbar.min.css" rel="stylesheet" />
+</head>
+<body id="top" class="fr-mb-12w">
+
+    <script type="module">const e="system",t="dark",c="dark",o="data-fr-theme",a="data-fr-scheme",r=`:root[${o}], :root[${a}]`,m=()=>{document.documentElement.setAttribute(o,c),document.documentElement.style.colorScheme="dark"},n=()=>{window.matchMedia("(prefers-color-scheme: dark)").matches&&m()};(()=>{if(document.documentElement.matches(r)){const c=(()=>{try{return"localStorage"in window&&null!==window.localStorage}catch(e){return!1}})()?localStorage.getItem("scheme"):"",o=document.documentElement.getAttribute(a);switch(!0){case c===t:m();break;case c===e:n();break;case o===t:m();break;case o===e:n()}}})();</script>
+
+    <div>
+        <style>
+            @media (min-width: 62em) {
+                .relative-sample\@lg {
+                    position: relative;
+                }
+            }
+        </style>
+        <div class="fr-mb-6v relative-sample@lg" style="z-index:1490;">
+            <header role="banner" class="fr-header">
+                <div class="fr-header__body">
+                    <div class="fr-container">
+                        <div class="fr-header__body-row">
+                            <div class="fr-header__brand fr-enlarge-link">
+                                <div class="fr-header__brand-top">
+                                    <div class="fr-header__logo">
+                                        <p class="fr-logo">
+                                            Ministère
+                                            <br>de l'Éducation
+                                            <br>Nationale
+                                            <br>et de la Jeunesse
+                                        </p>
+                                    </div>
+                                    <div class="fr-header__navbar">
+                                        <button class="fr-btn--search fr-btn" data-fr-opened="false" aria-controls="modal-2234" id="button-2235" title="Rechercher">
+                                            Rechercher
+                                        </button>
+                                        <button class="fr-btn--menu fr-btn" data-fr-opened="false" aria-controls="modal-2236" aria-haspopup="menu" id="button-2237" title="Menu">
+                                            Menu
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="fr-header__service">
+                                    <a href="/" title="Accueil - Projet Symfony PostgreSQL">
+                                        <p class="fr-header__service-title">
+                                            Projet Symfony PostgreSQL
+                                        </p>
+                                    </a>
+                                    <p class="fr-header__service-tagline">
+                                        Simulation de création d'Entity
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="fr-header__tools">
+                                <!--
+                                <div class="fr-header_tools-links">
+                                    <div class="fr-btns-group">
+                                        <li>
+                                            <button class="fr-btn fr-icon-theme-fill fr-btn--icon-left" aria-controls="fr-theme-modal" data-fr-opened="false">Thème</button>
+                                        </li>
+                                    </div>
+                                </div>
+                                -->
+                                <div class="fr-header__search fr-modal" id="modal-2234" aria-labelledby="button-2235">
+                                    <div class="fr-container fr-container-lg--fluid">
+                                        <button class="fr-btn--close fr-btn" aria-controls="modal-2234" id="button-2242" title="Fermer">
+                                            Fermer
+                                        </button>
+                                        <div class="fr-search-bar" id="search-2233" role="search">
+                                            <label class="fr-label" for="search-2233-input">
+                                                Rechercher
+                                            </label>
+                                            <input class="fr-input" aria-describedby="search-2233-input-messages" placeholder="Rechercher" id="search-2233-input" type="search">
+                                            <div class="fr-messages-group" id="search-2233-input-messages" aria-live="polite">
+                                            </div>
+                                            <button class="fr-btn" id="search-btn-2244" title="Rechercher">
+                                                Rechercher
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="fr-header__menu fr-modal" id="modal-2236" aria-labelledby="button-2237">
+                    <div class="fr-container">
+                        <button class="fr-btn--close fr-btn" aria-controls="modal-2236" id="button-2245" title="Fermer">
+                            Fermer
+                        </button>
+                        <div class="fr-header__menu-links">
+                        </div>
+                        <nav class="fr-nav" id="navigation-2238" role="navigation" aria-label="Menu principal">
+                            <ul class="fr-nav__list">
+                                <li class="fr-nav__item">
+                                    <a class="fr-nav__link" href="{{ path('app_home') }}" target="_self" id="nav-2294" {% if app.request.attributes.get('_route') == 'app_home' %} aria-current="page" {% endif %}>Accueil</a>
+                                </li>
+                                <li class="fr-nav__item">
+                                    <button class="fr-nav__btn" aria-expanded="false" aria-controls="collapse-2296" {% if app.request.attributes.get('_route') == 'app_users_index' %} aria-current="true" {% endif %} {% if app.request.attributes.get('_route') == 'app_users_new' %} aria-current="true" {% endif %}>Utilisateurs</button>
+                                    <div class="fr-collapse fr-menu" id="collapse-2296">
+                                        <ul class="fr-menu__list">
+                                            <li>
+                                                <a class="fr-nav__link" href="{{ path('app_users_index') }}" target="_self" id="nav-2299" {% if app.request.attributes.get('_route') == 'app_users_index' %} aria-current="page" {% endif %}>Afficher tous les utilisateurs</a>
+                                            </li>
+                                            <li>
+                                                <a class="fr-nav__link" href="{{ path('app_users_new') }}" target="_self" id="nav-2297" {% if app.request.attributes.get('_route') == 'app_users_new' %} aria-current="page" {% endif %}>Ajouter un utilisateur</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li class="fr-nav__item">
+                                    <button class="fr-nav__btn" aria-expanded="false" aria-controls="collapse-2247" {% if app.request.attributes.get('_route') == 'app_adresses_index' %} aria-current="true" {% endif %} {% if app.request.attributes.get('_route') == 'app_adresses_new' %} aria-current="true" {% endif %}>Adresses</button>
+                                    <div class="fr-collapse fr-menu" id="collapse-2247">
+                                        <ul class="fr-menu__list">
+                                            <li>
+                                                <a class="fr-nav__link" href="{{ path('app_adresses_index') }}" target="_self" id="nav-2248" {% if app.request.attributes.get('_route') == 'app_adresses_index' %} aria-current="page" {% endif %}>Afficher toutes les adresses</a>
+                                            </li>
+                                            <li>
+                                                <a class="fr-nav__link" href="{{ path('app_adresses_new') }}" target="_self" id="nav-2248" {% if app.request.attributes.get('_route') == 'app_adresses_new' %} aria-current="page" {% endif %}>Ajouter une adresse</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li class="fr-nav__item">
+                                    <a class="fr-nav__link" href="{{ path('app_users_adresses') }}" target="_self" id="nav-2294" {% if app.request.attributes.get('_route') == 'app_users_adresses' %} aria-current="page" {% endif %}>Adresses des utilisateurs</a>
+                                </li>
+                                <li class="fr-nav__item">
+                                    <a class="fr-nav__link" href="https://www.systeme-de-design.gouv.fr" target="_blank">dsfr</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </header>
+        </div>
+    </div>
+
+    <!-- Contenus des autres pages -->
+    <div class="fr-container fr-container--fluid fr-container-md">
         {% block body %}{% endblock %}
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-    </body>
+    </div>
+
+    <footer class="fr-footer" role="contentinfo">
+        <div class="fr-container">
+            <div class="fr-footer__body">
+                <div class="fr-footer__brand fr-enlarge-link">
+                    <a href="/">
+                        <p class="fr-logo">
+                            Ministère
+                            <br>de l'Éducation
+                            <br>Nationale
+                            <br>et de la Jeunesse
+                        </p>
+                    </a>
+                </div>
+                <div class="fr-footer__content">
+                    <p class="fr-footer__content-desc" style="text-align: justify!important;">Au service de la nation depuis 1828, le Ministère de l'Éducation Nationale et de la Jeunesse s'engage à promouvoir la sécurité et le bien-être de notre pays et de ses citoyens. Notre mission est de fournir des services publics de qualité, de promouvoir l'égalité, de garantir la justice et de soutenir le développement durable.</p>
+                    <ul class="fr-footer__content-list">
+                        <li class="fr-footer__content-item">
+                            <a id="footer__content-link-6363" class="fr-footer__content-link" target="_blank" href="https://legifrance.gouv.fr">legifrance.gouv.fr</a>
+                        </li>
+                        <li class="fr-footer__content-item">
+                            <a id="footer__content-link-6364" class="fr-footer__content-link" target="_blank" href="https://gouvernement.fr">gouvernement.fr</a>
+                        </li>
+                        <li class="fr-footer__content-item">
+                            <a id="footer__content-link-6365" class="fr-footer__content-link" target="_blank" href="https://service-public.fr">service-public.fr</a>
+                        </li>
+                        <li class="fr-footer__content-item">
+                            <a id="footer__content-link-6366" class="fr-footer__content-link" target="_blank" href="https://data.gouv.fr">data.gouv.fr</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="fr-footer__bottom">
+                <ul class="fr-footer__bottom-list">
+                    <li class="fr-footer__bottom-item">
+                        <a class="fr-footer__bottom-link" id="footer__bottom-link-6369" href="https://www.education.gouv.fr/mentions-legales-du-site-educationgouvfr-4526" target="_blank">Mentions légales</a>
+                    </li>
+                    <li class="fr-footer__bottom-item">
+                        <a class="fr-footer__bottom-link" id="footer__bottom-link-6370" href="https://www.education.gouv.fr/donnees-personnelles-et-cookies-12065" target="_blank">Données personnelles et cookies</a>
+                    </li>
+                    <li class="fr-footer__bottom-item">
+                        <a class="fr-footer__bottom-link" id="footer__bottom-link-6371" href="https://www.education.gouv.fr/#tarteaucitron" target="_blank">Gestion des cookies</a>
+                    </li>
+                </ul>
+                <div class="fr-footer__bottom-copy">
+                    <p>&copy; 2023 - Ministère de l'Éducation Nationale et de la Jeunesse</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script type="module" src="{{ asset('assets/core/core.module.js') }}"></script>
+    <script type="module" src="{{ asset('assets/component/card/card.module.js') }}"></script>
+    <script type="module" src="{{ asset('assets/component/button/button.module.js') }}"></script>
+    <script type="module" src="{{ asset('assets/component/password/password.module.js') }}"></script>
+    <script type="module" src="{{ asset('assets/component/table/table.module.js') }}"></script>
+    <script type="module" src="{{ asset('assets/component/table/table.module.js') }}"></script>
+    <script type="module" src="{{ asset('assets/component/navigation/navigation.module.js') }}"></script>
+    <script type="module" src="{{ asset('assets/component/modal/modal.module.js') }}"></script>
+    <script type="module" src="{{ asset('assets/scheme/scheme.module.js') }}"></script>
+    <script type="module" src="{{ asset('assets/component/accordion/accordion.module.js') }}"></script>
+    <script type="module" src="{{ asset('assets/component/header/header.module.js') }}"></script>
+    <script type="module" src="{{ asset('assets/component/display/display.module.js') }}"></script>
+    <script type="text/javascript" nomodule src="{{ asset('assets/legacy/legacy.nomodule.js') }}"></script>
+    <script type="text/javascript" nomodule src="{{ asset('assets/core/core.nomodule.js') }}"></script>
+    <script type="text/javascript" nomodule src="{{ asset('assets/component/navigation/navigation.nomodule.js') }}"></script>
+    <script type="text/javascript" nomodule src="{{ asset('assets/component/modal/modal.nomodule.js') }}"></script>
+    <script type="text/javascript" nomodule src="{{ asset('assets/component/password/password.nomodule.js') }}"></script>
+    <script type="text/javascript" nomodule src="{{ asset('assets/component/accordion/accordion.nomodule.js') }}"></script>
+    <script type="text/javascript" nomodule src="{{ asset('assets/component/header/header.nomodule.js') }}"></script>
+    <script type="text/javascript" nomodule src="{{ asset('assets/component/display/display.nomodule.js') }}"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.20.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.20.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.20.0/plugins/toolbar/prism-toolbar.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.20.0/plugins/normalize-whitespace/prism-normalize-whitespace.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.20.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
+
+</body>
 </html>
