@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}CRUD Utilisateurs{% endblock %}
+
+{% block body %}
+    <h3>Liste des utilisateurs</h3>
+
+    <div class="fr-grid-row fr-grid-row--center">
+        <div class="fr-mb-6v">
+            <div class="fr-table" id="table-6689">
+                <table>
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Roles</th>
+                            <th scope="col">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for user in users %}
+                        <tr>
+                            <td>{{ user.id }}</td>
+                            <td>{{ user.email }}</td>
+                            <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
+                            <td>
+                                <a href="{{ path('app_users_show', {'id': user.id}) }}" class="fr-btn">Afficher</a>
+                                <a href="{{ path('app_users_edit', {'id': user.id}) }}" class="fr-btn" style="background-color: #0D6EFD; color: white;">Modifier</a>
+                            </td>
+                        </tr>
+                    {% else %}
+                        <tr>
+                            <td colspan="5">Aucun utilisateur</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="fr-grid-row fr-grid-row--center fr-mb-6v">
+        <a href="{{ path('app_users_new') }}" class="fr-btn" style="background-color: #198754; color: white;">Ajouter un utilisateur</a>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<div class="example-wrapper">
+    <h1>Adresses des Utilisateurs</h1>
+
+    Retrouvez ci-dessous la liste des utilisateurs <i>(Adresse email)</i> ainsi que leurs adresses associées :
+
+    <div class="fr-grid-row fr-grid-row--center">
+        <div class="fr-mb-6v">
+            <div class="fr-table" id="table-6689">
+                <table>
+                    <thead>
+                    <tr>
+                        <th scope="col">Adresse email</th>
+                        <th scope="col">Adresse postale</th>
+                        <th scope="col">Code postal</th>
+                        <th scope="col">Ville</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for item in result %}
+                        <tr>
+                            <td>{{ item.email }}</td>
+                            <td>{{ item.adresse }}</td>
+                            <td>{{ item.cp }}</td>
+                            <td>{{ item.ville }}</td>
+                        </tr>
+                    {% else %}
+                        <tr>
+                            <td colspan="5">Aucune donnée</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
+{% endblock %}

@@ -1,0 +1,6 @@
+<div class="fr-grid-row fr-grid-row--center fr-mb-6v">
+    <form method="post" action="{{ path('app_users_delete', {'id': user.id}) }}" onsubmit="return confirm('Voulez-vous vraiment supprimer cet utilisateur ?');">
+        <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ user.id) }}">
+        <button class="fr-btn" style="background-color: #DC3545; color: white;">Supprimer l'utilisateur</button>
+    </form>
+</div>

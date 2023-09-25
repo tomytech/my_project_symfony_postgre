@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h3>Ajouter une nouvelle adresse</h3>
+
+    {{ include('adresses/_form.html.twig') }}
+
+    <div class="fr-grid-row fr-grid-row--center fr-mb-6v">
+        <a href="{{ path('app_adresses_index') }}" class="fr-btn">Retour à la liste</a>
+    </div>
+{% endblock %}

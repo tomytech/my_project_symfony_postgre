@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="example-wrapper">
+    <h1>Bienvenue sur la page d'accueil !</h1>
+
+    <div class="fr-mb-6v">
+        <div class="fr-grid-row fr-grid-row--gutters">
+            <div class="fr-col-12 fr-col-md-12">
+                <div class="fr-card fr-enlarge-link">
+                    <div class="fr-card__body">
+                        <h4 class="fr-card__title">
+                            Projet non terminé :
+                        </h4>
+                        <p class="fr-card__desc">
+                            - Select des <code>Roles</code> utilisateurs à corrigé dans le fichier <code>src/Form/UsersType.php</code> (résolue)
+                        </p>
+                        <p class="fr-card__desc">
+                            - Select des utilisateurs dans la création d'une <code>Adresse</code> : <code>select</code> affichant <code>Prénom NOM</code> des utilisateurs au lieu d'un input type <code>number</code>
+                        </p>
+                        <p class="fr-card__desc">
+                            - Affichage des adresses des utilisateurs en utilisant <code>Doctrine ORM</code>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

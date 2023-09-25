@@ -1,0 +1,53 @@
+{# base.html.twig #}
+
+<div class="fr-grid-row fr-grid-row--center">
+    <div class="fr-col-md-5 fr-col-12">
+        {{ form_start(form) }}
+        <div class="fr-fieldset__element fr-mb-5v">
+            <div class="fr-input-group">
+                <label for="email" class="fr-label">
+                    Adresse email de l'utilisateur
+                </label>
+                {{ form_widget(form.email, {'attr' : {'class': 'fr-input'}}) }}
+            </div>
+        </div>
+
+        <div class="fr-fieldset__element fr-mb-5v">
+            <div class="fr-select-group">
+                <label for="role" class="fr-label">
+                    Rôle de l'utilisateur
+                </label>
+                {{ form_widget(form.roles, {'attr' : {'class': 'fr-select'}}) }}
+            </div>
+        </div>
+
+        <div class="fr-fieldset__element fr-mb-10v">
+            <div class="fr-">
+                <label for="password" class="fr-label">
+                    Mot de passe de l'utilisateur
+                </label>
+                {{ form_widget(form.password, {'attr' : {'class': 'fr-password__input fr-input'}}) }}
+                <div class="fr-messages-group" id="password-5522-input-messages" aria-live="polite">
+                    <p class="fr-message" id="password-5522-input-message">Le mot de passe de l'utilisateur doit contenir au minimum :</p>
+                    <p class="fr-message fr-message--info" data-fr-valid="validé" data-fr-error="en erreur" id="password-5522-input-message-info">12 caractères</p>
+                    <p class="fr-message fr-message--info" data-fr-valid="validé" data-fr-error="en erreur" id="password-5522-input-message-info">1 lettre MAJUSCULE</p>
+                    <p class="fr-message fr-message--info" data-fr-valid="validé" data-fr-error="en erreur" id="password-5522-input-message-info">1 lettre minuscule</p>
+                    <p class="fr-message fr-message--info" data-fr-valid="validé" data-fr-error="en erreur" id="password-5522-input-message-info-2">1 chiffre</p>
+                    <p class="fr-message fr-message--info" data-fr-valid="validé" data-fr-error="en erreur" id="password-5522-input-message-info-1">1 caractère spécial</p>
+                </div>
+                <div class="fr-password__checkbox fr-checkbox-group fr-checkbox-group--sm">
+                    <input aria-label="Afficher le mot de passe" id="password-5522-show" type="checkbox">
+                    <label class="fr--password__checkbox fr-label" for="password-5522-show">
+                        Afficher
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="fr-grid-row fr-grid-row--center">
+            <button class="fr-btn fr-mb-5v">{{ button_label|default('Ajouter') }}</button>
+        </div>
+        {{ form_end(form) }}
+    </div>
+</div>
+

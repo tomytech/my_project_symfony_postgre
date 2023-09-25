@@ -1,0 +1,43 @@
+{# base.html.twig #}
+
+<div class="fr-grid-row fr-grid-row--center">
+    <div class="fr-col-md-5 fr-col-12">
+        {{ form_start(form) }}
+        <div class="fr-fieldset__element fr-mb-5v">
+            <div class="fr-input-group">
+                <label for="adresse" class="fr-label">
+                    Adresse
+                </label>
+                {{ form_widget(form.adresse, {'attr' : {'class': 'fr-input'}}) }}
+            </div>
+        </div>
+        <div class="fr-fieldset__element fr-mb-5v">
+            <div class="fr-input-group">
+                <label for="cp" class="fr-label">
+                    Code postal
+                </label>
+                {{ form_widget(form.cp, {'attr' : {'class': 'fr-input'}}) }}
+            </div>
+        </div>
+        <div class="fr-fieldset__element fr-mb-5v">
+            <div class="fr-input-group">
+                <label for="ville" class="fr-label">
+                    Ville
+                </label>
+                {{ form_widget(form.ville, {'attr' : {'class': 'fr-input'}}) }}
+            </div>
+        </div>
+        <div class="fr-fieldset__element fr-mb-6v">
+            <div class="fr-input-group">
+                <label for="adresses_idu" class="fr-label">
+                    Utilisateur
+                </label>
+                {{ form_widget(form.idu, {'attr' : {'class': 'fr-select'}}) }}
+            </div>
+        </div>
+        <div class="fr-grid-row fr-grid-row--center">
+            <button class="fr-btn fr-mb-5v">{{ button_label|default('Ajouter') }}</button>
+        </div>
+        {{ form_end(form) }}
+    </div>
+</div>
